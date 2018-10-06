@@ -71,7 +71,8 @@ vfs = [
 	"rhs_Kornet_9M133_2_vdv",
 	"rhsgref_ins_g_ZU23",
 	"rhsgref_ins_g_btr70",
-	"rhsgref_ins_g_gaz66_r142"
+	"rhsgref_ins_g_gaz66_r142",
+	"C_Offroad_02_unarmed_F"
 ];
 
 // Name of the faction
