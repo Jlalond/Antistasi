@@ -10,7 +10,7 @@ if (_chequeo) exitWith {Hint "You cannot buy vehicles with enemies nearby"};
 private ["_tipoVeh","_coste","_resourcesFIA","_marcador","_pos","_veh"];
 
 _tipoVeh = _this select 0;
-_milveh = vfs select [3,10];
+_milveh = vfs select [3,11];
 _milstatics = vfs select [7,4];
 
 _coste = [_tipoVeh] call vehiclePrice;

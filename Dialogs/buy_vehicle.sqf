@@ -1,4 +1,4 @@
-private ["_display","_childControl"];
+﻿private ["_display","_childControl"];
 createDialog "buy_vehicle";
 
 sleep 1;
@@ -27,5 +27,5 @@ if (str (_display) != "no display") then
 	_ChildControl = _display displayCtrl 112;
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €",[vfs select 11] call vehiclePrice];
 	_ChildControl = _display displayCtrl 113;
-	_ChildControl  ctrlSetTooltip format ["Cost: %1 €",[vfs select 12] call vehiclePrice];
+	_ChildControl  ctrlSetTooltip format ["Cost: %1 €",[vfs select 13] call vehiclePrice];
 };

@@ -59,7 +59,7 @@ These are the vehicles and statics that you can buy at HQ. Currently, the array 
 3-10: military vehicles and statics
 */
 vfs = [
-	"C_Offroad_01_F",
+	"C_Offroad_01_F",  //0
 	"C_Van_01_transport_F",
 	"RHS_Mi8amt_civilian",
 	"I_G_Quadbike_01_F",
@@ -72,7 +72,8 @@ vfs = [
 	"rhsgref_ins_g_ZU23",
 	"rhsgref_ins_g_btr70",
 	"rhsgref_ins_g_gaz66_r142",
-	"C_Offroad_02_unarmed_F"
+	"C_Offroad_02_unarmed_F",
+	"rhsgref_cdf_reg_mi17Sh" //14
 ];
 
 // Name of the faction

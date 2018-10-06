@@ -128,20 +128,16 @@ fnc_RB_placeSingle = {
 		_vehicleToGet = guer_veh_technical;
 		if(_advanced) then
 		{
-			_num = random 2;
-			if(num == 1) then 
-			{
-				_vehicle = guer_veh_technical_AT;
-			}
-			if(num == 2) then 
-			{
-				_vehicle = guer_veh_roadblockAA 
-			}
+			if (str typeof _x find guer_veh_technical_AT > -1) then {
+        		_vehicle = _x;
+   			};
    		};
+		} else {
+			if (str typeof _x find guer_veh_technical > -1) then {
+        		_vehicle = _x;
+   			};
 		}
-		if (str typeof _x find _vehicleToGet > -1) then {
-        	_vehicle = _x;
-   		};
+
 	} forEach _objs;
 
 	_vehicle allowDamage false;

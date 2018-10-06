@@ -142,6 +142,8 @@ server setVariable [vfs select 7,400,true];
 server setVariable [vfs select 8,800,true];
 server setVariable [vfs select 9,800,true];
 server setVariable [vfs select 10,800,true];
+server setVariable [vfs select 13,400,true];
+server setVariable [vfs select 14,12000,true];
 
 if (activeAFRF) then {
 	server setVariable [vfs select 2,6000,true];
