@@ -492,7 +492,7 @@ class civ_vehicle
 	BTN_L1(104, $STR_D_OFFR, "", "closeDialog 0; [vfs select 0] call addFIAveh;");
 	BTN_R1(105, $STR_D_TRUCK, "", "closeDialog 0; [vfs select 1] call addFIAveh;");
 
-	BTN_L2(114, $STR_D_OFFR, "", "closeDialog 0; [vfs select 114] call addFIAveh;");
+	BTN_L2(114, $STR_D_OFFR, "", "closeDialog 0; [vfs select 14] call addFIAveh;");
 	BTN_R2(106, $STR_D_HELI, "", "closeDialog 0; [vfs select 2] call addFIAveh;");
 
 	};
