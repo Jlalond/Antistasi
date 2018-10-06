@@ -1,7 +1,7 @@
 #include "defines.hpp"
 #include "dialogs.hpp"
 
-author="Barbolani";
+author="Barbolani, modified by Twusty";
 OnLoadName = $STR_MISSION_NAME_EXT;
 OnLoadMission = "Be a Resistance Leader - Be a Hero";
 loadScreen = "pic.paa";
