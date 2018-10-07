@@ -145,11 +145,15 @@ server setVariable [vfs select 10,800,true];
 server setVariable [vfs select 13,400,true];
 server setVariable [vfs select 14,12000,true];
 
+server setVariable [twustyVefs select 1, 12000, true];
+server setVariable [twustyVefs select 0, 400, true];
+
 if (activeAFRF) then {
 	server setVariable [vfs select 2,6000,true];
 	server setVariable [vfs select 11,5000,true];
 	server setVariable [vfs select 12,600,true];
 	server setVariable [vehTruckAA, 800, true];
+
 };
 
 server setVariable ["hr",8,true];//initial HR value

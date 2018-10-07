@@ -375,8 +375,7 @@ if (activeGREF) then {
 
 	unlockedMagazines = [
 	"rhs_mag_9x18_8_57N181S",
-	"rhsgref_1Rnd_00Buck",
-	"rhsusf_8Rnd_00Buck"
+	"rhsgref_1Rnd_Slug"
 	];
 } else {
 	unlockedWeapons = [
@@ -469,6 +468,11 @@ unlockedItems = [
 	"rhsgref_uniform_flecktarn",
 	"G_Bandanna_khk",
 	"rhs_uniform_gorka_r_y"
+];
+
+twustyVefs = [
+	"C_Offroad_02_unarmed_F",
+	"rhsgref_cdf_reg_Mi17Sh"
 ];
 
 unlockedBackpacks = [
