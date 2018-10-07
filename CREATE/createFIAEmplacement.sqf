@@ -26,7 +26,7 @@ if (_onRoad) then {
 		sleep 1;
 
 		_infData = _data select 2;
-		_group = [(_infData select 0), side_blue, ([guer_grp_AT, "guer"] call AS_fnc_pickGroup), [(_infData select 0), side_blue, ([guer_grp_AT, "guer"] call AS_fnc_pickGroup)], [], [], [], [], (_infData select 1)] call BIS_Fnc_spawnGroup;
+		_group = [(_infData select 0), side_blue, ([guer_grp_AT, "guer"] call AS_fnc_pickGroup), [], [], [], [], [], (_infData select 1)] call BIS_Fnc_spawnGroup;
 		{[_x] spawn AS_fnc_initialiseFIAGarrisonUnit} forEach units _group;
 		(_data select 1) joinSilent _group;
 		_allGroups pushBack _group;
@@ -53,13 +53,6 @@ if (_onRoad) then {
 	_group = [_markerPos, side_blue, ([guer_grp_sniper, "guer"] call AS_fnc_pickGroup)] call BIS_Fnc_spawnGroup;
 	_group setBehaviour "STEALTH";
 	_group setCombatMode "GREEN";
-	if(_advanced) then {
-		_unit = [_markerPos, side_blue, guer_sol_ENG] call BIS_Fnc_spawnGroup;
-		_vehicle = guer_stat_AA createVehicle _markerPos;
-		_vehicle lock 3;
-		_unit moveInGunner _vehicle;
-		_unit joinSilent _group;
-	}
 	{[_x] spawn AS_fnc_initialiseFIAGarrisonUnit;} forEach units _group;
 	_allGroups pushBack _group;
 };

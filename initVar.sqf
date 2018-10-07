@@ -121,7 +121,7 @@ server setVariable ["genAAlocked",true,true];
 {server setVariable [_x,200,true]} forEach [guer_sol_AR,guer_sol_GL,guer_sol_MRK,guer_sol_LAT]; // Stef Temporarnely increase to balance the not requirement
 {server setVariable [_x,100,true]} forEach [guer_sol_SL,guer_sol_OFF,guer_sol_SN,guer_sol_AA];
 {server setVariable [_x,100,true]} forEach infList_regular;
-{server setVariable [_x,80,true]} forEach infList_auto;
+{server setVariable [_x,20,true]} forEach infList_auto;
 {server setVariable [_x,150,true]} forEach infList_crew;
 {server setVariable [_x,150,true]} forEach infList_pilots;
 {server setVariable [_x,200,true]} forEach infList_special;

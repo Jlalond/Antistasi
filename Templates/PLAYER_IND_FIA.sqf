@@ -143,7 +143,9 @@ if (worldname == "Tanoa") then {
 		"rhs_Kornet_9M133_2_vdv",
 		"rhs_Igla_AA_pod_msv",
 		"rhs_bmd1_chdkz",
-		"rhs_gaz66_r142_vdv"
+		"rhs_gaz66_r142_vdv",
+		"C_Offroad_02_unarmed_F",
+		"rhsgref_cdf_reg_mi17Sh" //14
 	];
 
 	guer_gear_vestAdv = "rhs_6b23_6sh116_flora";

@@ -95,7 +95,7 @@ fnc_RB_randomRB = {
 };
 
 fnc_RB_placeSingle = {
-	params ["_position", ["_lane", "right"], ["_advanced", false];
+	params ["_position", ["_lane", "right"]];
 
 	private ["_roads", "_objs", "_gunner", "_connectedRoads", "_dir","_spawnPos", "_spawnDir", "_vehicle", "_rotation", "_RBgroup", "_surface", "_infPos"];
 
@@ -121,23 +121,14 @@ fnc_RB_placeSingle = {
 	_infPos = [_roadPos, 10, _spawnDir] call BIS_Fnc_relPos;
 	_infPos = [_infPos, 20, _dir] call BIS_Fnc_relPos;
 	_spawnDir = _spawnDir + 270;
-	_objs = [_spawnPos, _spawnDir, [] call fnc_RB_randomRB] call BIS_fnc_ObjectsMapper
+	_objs = [_spawnPos, _spawnDir, [] call fnc_RB_randomRB] call BIS_fnc_ObjectsMapper;
+
 	{
 		_surface = surfaceNormal (position _x);
 		_x setVectorUp _surface;
-		_vehicleToGet = guer_veh_technical;
-		if(_advanced) then
-		{
-			if (str typeof _x find guer_veh_technical_AT > -1) then {
-        		_vehicle = _x;
-   			};
+		if (str typeof _x find guer_veh_technical > -1) then {
+        	_vehicle = _x;
    		};
-		} else {
-			if (str typeof _x find guer_veh_technical > -1) then {
-        		_vehicle = _x;
-   			};
-		}
-
 	} forEach _objs;
 
 	_vehicle allowDamage false;
@@ -158,8 +149,8 @@ fnc_RB_placeDouble = {
 
 	private ["_objs", "_gunners", "_dataR", "_dataL"];
 
-	_dataR = [_position, "right", true] call fnc_RB_placeSingle;
-	_dataL = [_position, "left", true] call fnc_RB_placeSingle;
+	_dataR = [_position, "right"] call fnc_RB_placeSingle;
+	_dataL = [_position, "left"] call fnc_RB_placeSingle;
 
 	diag_log format ["R: %1; L: %2", (_dataR select 2), (_dataL select 2)];
 
