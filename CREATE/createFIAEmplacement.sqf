@@ -51,8 +51,19 @@ if (_onRoad) then {
 	};
 } else {
 	_group = [_markerPos, side_blue, ([guer_grp_sniper, "guer"] call AS_fnc_pickGroup)] call BIS_Fnc_spawnGroup;
-	_group setBehaviour "STEALTH";
-	_group setCombatMode "GREEN";
+	_group = [_markerPos, side_blue, ([guer_grp_crew, "guer"] call AS_fnc_pickGroup)] call BIS_Fnc_spawnGroup;
+	sleep 1;
+	if(_advanced) then {
+		_vehicle = "rhsgref_cdf_zsu234" createVehicle position _markerPos;
+	} else {
+		_vehicle = "RHSgref_cdf_zu23" createVehicle position _markerPos;
+	};
+	
+	_group select 1 moveInGunner _vehicle;
+	_vehicle lock 3;
+	
+	_group setBehaviour "AWARE";
+	_group setCombatMode "RED";
 	{[_x] spawn AS_fnc_initialiseFIAGarrisonUnit;} forEach units _group;
 	_allGroups pushBack _group;
 };
