@@ -51,16 +51,20 @@ if (_onRoad) then {
 	};
 } else {
 	_group = [_markerPos, side_blue, ([guer_grp_sniper, "guer"] call AS_fnc_pickGroup)] call BIS_Fnc_spawnGroup;
-	_group = [_markerPos, side_blue, ([guer_grp_crew, "guer"] call AS_fnc_pickGroup)] call BIS_Fnc_spawnGroup;
-	sleep 1;
-	if(_advanced) then {
-		_vehicle = "rhsgref_cdf_zsu234" createVehicle position _markerPos;
+	_fiaSkill = server getVariable "skillFIA";
+	if(_fiaSkill > 10) then {
+		_vehicle = "rhsgref_cdf_zsu234" createVehicle _markerPos;
 	} else {
-		_vehicle = "RHSgref_cdf_zu23" createVehicle position _markerPos;
+		_vehicle = "RHSgref_cdf_zu23" createVehicle _markerPos;
 	};
 	
-	_group select 1 moveInGunner _vehicle;
-	_vehicle lock 3;
+	_unit = _group createUnit[guer_sol_RFL, _markerPos, [], 0, "NONE"];
+	// dirty hack so we don't check the configs
+	_group createUnit[guer_sol_AA, _markerPos, [], 0, "NONE"];
+	_group createUnit[guer_sol_AA, _markerPos, [], 0, "NONE"];
+	_unit moveInGunner _vehicle;
+	_vehicle lock 2;
+	_allVehicles pushBack _vehicle;
 	
 	_group setBehaviour "AWARE";
 	_group setCombatMode "RED";
