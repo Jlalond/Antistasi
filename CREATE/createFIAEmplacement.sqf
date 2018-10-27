@@ -18,6 +18,7 @@ if (activeBE) then {
 	if (BE_current_FIA_RB_Style == 1) exitWith {_advanced = true};
 };
 // BE module
+_fiaSkill = server getVariable "skillFIA";
 
 if (_onRoad) then {
 	if (_advanced) then {
@@ -36,7 +37,12 @@ if (_onRoad) then {
 		_roadPos = _spawnData select 0;
 		_direction = _spawnData select 1;
 
-		_vehicle = guer_veh_technical createVehicle _roadPos;
+		if(_fiaSkill > 8) then {
+			_vehicle = guer_veh_technical_AT createVehicle _roadPos;
+		} else {
+			_vehicle = guer_veh_technical createVehicle _roadPos;
+		};
+
 		_allVehicles pushBack _vehicle;
 		_vehicle setDir _direction + 90;
 		_vehicle lock 3;
@@ -51,7 +57,7 @@ if (_onRoad) then {
 	};
 } else {
 	_group = [_markerPos, side_blue, ([guer_grp_sniper, "guer"] call AS_fnc_pickGroup)] call BIS_Fnc_spawnGroup;
-	_fiaSkill = server getVariable "skillFIA";
+
 	if(_fiaSkill > 10) then {
 		_vehicle = "rhsgref_cdf_zsu234" createVehicle _markerPos;
 	} else {
