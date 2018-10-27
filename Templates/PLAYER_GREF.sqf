@@ -51,6 +51,8 @@ guer_grp_sentry = 		[guer_sol_GL, guer_sol_RFL]; // Cpl, Pvt
 guer_grp_AT = 			[guer_sol_SL, guer_sol_LAT]; // Cpl, Pvt
 guer_grp_squad = 		[guer_sol_SL, guer_sol_GL, guer_sol_LAT, guer_sol_AR]; // Sgt, Cpl, Pvt, Pvt
 guer_grp_team = 		[guer_sol_SL, guer_sol_GL, guer_sol_LAT, guer_sol_AR, guer_sol_MRK, guer_sol_MED, guer_sol_RFL, guer_sol_ENG, guer_sol_RFL, guer_sol_RFL, guer_sol_RFL, guer_sol_AA]; // Sgt, Cpl, Pvt, Pvt, cpl, pvt, pvt, pvt
+guer_grp_crew = 		[guer_sol_R_L, guer_sol_R_L];
+guer_grp_AA = 			[guer_sol_SL, guer_sol_AA, guer_sol_AA, guer_sol_AA, guer_sol_AA, guer_sol_MRK, guer_sol_ENG];
 
 
 /*

@@ -18,6 +18,7 @@ if (activeBE) then {
 	if (BE_current_FIA_RB_Style == 1) exitWith {_advanced = true};
 };
 // BE module
+_fiaSkill = server getVariable "skillFIA";
 
 if (_onRoad) then {
 	if (_advanced) then {
@@ -36,7 +37,12 @@ if (_onRoad) then {
 		_roadPos = _spawnData select 0;
 		_direction = _spawnData select 1;
 
-		_vehicle = guer_veh_technical createVehicle _roadPos;
+		if(_fiaSkill > 8) then {
+			_vehicle = guer_veh_technical_AT createVehicle _roadPos;
+		} else {
+			_vehicle = guer_veh_technical createVehicle _roadPos;
+		};
+
 		_allVehicles pushBack _vehicle;
 		_vehicle setDir _direction + 90;
 		_vehicle lock 3;
@@ -51,8 +57,23 @@ if (_onRoad) then {
 	};
 } else {
 	_group = [_markerPos, side_blue, ([guer_grp_sniper, "guer"] call AS_fnc_pickGroup)] call BIS_Fnc_spawnGroup;
-	_group setBehaviour "STEALTH";
-	_group setCombatMode "GREEN";
+
+	if(_fiaSkill > 10) then {
+		_vehicle = "rhsgref_cdf_zsu234" createVehicle _markerPos;
+	} else {
+		_vehicle = "RHSgref_cdf_zu23" createVehicle _markerPos;
+	};
+	
+	_unit = _group createUnit[guer_sol_RFL, _markerPos, [], 0, "NONE"];
+	// dirty hack so we don't check the configs
+	_group createUnit[guer_sol_AA, _markerPos, [], 0, "NONE"];
+	_group createUnit[guer_sol_AA, _markerPos, [], 0, "NONE"];
+	_unit moveInGunner _vehicle;
+	_vehicle lock 2;
+	_allVehicles pushBack _vehicle;
+	
+	_group setBehaviour "AWARE";
+	_group setCombatMode "RED";
 	{[_x] spawn AS_fnc_initialiseFIAGarrisonUnit;} forEach units _group;
 	_allGroups pushBack _group;
 };
