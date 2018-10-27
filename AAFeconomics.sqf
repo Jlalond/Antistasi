@@ -137,6 +137,10 @@ if (_resourcesAAF > 2000) then{
 
 _resourcesAAF = round _resourcesAAF;
 
+if(_skillFIA > 15) then {
+	_resourcesAAF = _resourcesAAF * 2;
+};
+
 server setVariable ["resourcesAAF",_resourcesAAF,true];
 
 resourcesIsChanging = false;

@@ -66,8 +66,8 @@ if (_onRoad) then {
 	
 	_unit = _group createUnit[guer_sol_RFL, _markerPos, [], 0, "NONE"];
 	// dirty hack so we don't check the configs
-	_group createUnit[guer_sol_AA, _markerPos, [], 0, "NONE"];
-	_group createUnit[guer_sol_AA, _markerPos, [], 0, "NONE"];
+	_group createUnit[([guer_sol_AA, "guer"] call AS_fnc_pickGroup), _markerPos, [], 0, "NONE"];
+	_group createUnit[([guer_sol_AA, "guer"] call AS_fnc_pickGroup), _markerPos, [], 0, "NONE"];
 	_unit moveInGunner _vehicle;
 	_vehicle lock 2;
 	_allVehicles pushBack _vehicle;

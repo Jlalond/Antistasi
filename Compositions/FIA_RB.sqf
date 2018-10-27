@@ -121,6 +121,7 @@ fnc_RB_placeSingle = {
 	_infPos = [_roadPos, 10, _spawnDir] call BIS_Fnc_relPos;
 	_infPos = [_infPos, 20, _dir] call BIS_Fnc_relPos;
 	_spawnDir = _spawnDir + 270;
+
 	_objs = [_spawnPos, _spawnDir, [] call fnc_RB_randomRB] call BIS_fnc_ObjectsMapper;
 
 	{
@@ -131,6 +132,14 @@ fnc_RB_placeSingle = {
    		};
 	} forEach _objs;
 
+	
+	_fiaSkill = server getVariable "skillFIA";
+	if(_fiaSkill > 8) then {
+		_vehiclePos = getPos _vehicle;
+		deleteVehicle _vehicle;
+		_vehicle = guer_veh_technical_AT createVehicle _markerPos;
+	};
+		
 	_vehicle allowDamage false;
 	_vehicle setFuel 0;
 	0 = [_vehicle] spawn VEHinit;
