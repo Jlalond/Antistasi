@@ -20,15 +20,15 @@ _standardAccessories = vanillaAccessories;
 expCrate call jn_fnc_logistics_addAction;
 
 if (activeACE) then {
-	_standardWeapons = vanillaWeapons + aceWeapons;
-	_standardAccessories = vanillaAccessories + aceAccessories;
+	vanillaWeapons = vanillaWeapons + aceWeapons;
+	vanillaAccessories = vanillaAccessories + aceAccessories;
 };
 
 _noWeaponMods = true;
 if !(count (lockedWeapons - _standardWeapons) == 0) then {
 	_noWeaponMods = false;
-	_weapons = lockedWeapons - _standardWeapons;
-	_accessories = gear_allAccessories - _standardAccessories;
+	lockedWeapons = lockedWeapons - _standardWeapons;
+	gear_allAccessories = gear_allAccessories - _standardAccessories;
 };
 
 //"  if ("rhs_group_rus_vdv_infantry_section_AT" in infAT) then {
@@ -179,6 +179,13 @@ switch (_t) do {
 				_magazines = getArray (configFile / "CfgWeapons" / _cosa / "magazines");
 				expCrate addMagazineCargoGlobal [_magazines select 0, _num * 6];
 			};
+		};
+	};
+	case "Vehicles": {
+		if(true) exitWith {
+			_pos = getPos expCrate;
+			_veh = buyableVefs call BIS_fnc_selectRandom;
+			createVehicle [_veh, _pos findEmptyPosition[20, 100]];
 		};
 	};
 	case "aCache": {

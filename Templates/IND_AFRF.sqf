@@ -67,11 +67,11 @@ infList_pilots = 	[sol_HPIL, sol_HPIL2, sol_PIL];
 
 // Vehicles
 vehTrucks = 		["rhs_kamaz5350_open_vdv","rhs_kamaz5350_vdv","RHS_Ural_Open_VDV_01","RHS_Ural_VDV_01"]; // trucks that spawn at outposts, etc
-vehPatrol =			["rhs_tigr_m_vdv","RHS_Mi8mt_vvsc"]; // vehicles used for road patrols;
+vehPatrol =			["rhs_tigr_m_vdv","RHS_Mi8mt_vvsc", "rhs_sprut_vdv"]; // vehicles used for road patrols;
 if (activeGREF) then {vehPatrol = vehPatrol + ["rhsgref_BRDM2_HQ_vdv"];};
-vehAPC = 			["rhs_btr80_vdv"]; // APCs
-vehIFV = 			["rhs_bmp2d_vdv","rhs_bmp1p_vdv","rhs_bmd2m","rhs_bmd2k"]; // IFVs
-vehTank = 			["rhs_t72bb_tv","rhs_t72bd_tv","rhs_t90a_tv"]; // MBTs
+vehAPC = 			["rhs_btr80_vdv", "rhs_bmp3m_msv"]; // APCs
+vehIFV = 			["rhs_bmp2d_vdv","rhs_bmp1p_vdv","rhs_bmd2m","rhs_bmd2k", "rhs_bmd4ma_vdv"]; // IFVs
+vehTank = 			["rhs_t80um","rhs_t72bb_tv","rhs_t72bd_tv","rhs_t90a_tv", "rhs_t90sm_tv"]; // MBTs
 vehSupply = 		["rhs_gaz66_ammo_vdv","RHS_Ural_Fuel_VDV_01","rhs_gaz66_repair_vdv","rhs_gaz66_ap2_vdv"]; // supply vehicles (ammo, fuel, med)
 vehAmmo = 			"rhs_gaz66_ammo_vdv"; // ammo truck, for special missions
 vehFuel = 			["RHS_Ural_Fuel_VDV_01"]; // fuel truck for missions
@@ -82,7 +82,7 @@ vehLead = 			["rhs_tigr_sts_3camo_vdv"];};
 standardMRAP = 		["rhs_tigr_vdv","rhs_uaz_vdv"]; // default transport MRAP/car
 vehTruckBox = 		["rhs_gaz66_repair_vdv"]; // repair truck or at least a prop
 vehPatrolBoat = 	["I_Boat_Armed_01_minigun_F"];
-vehDef= 			["rhs_btr80a_vdv"];
+vehDef= 			["rhs_btr80a_vdv", "rhs_t14_tv"];
 
 vehTruckAA = 		"rhs_gaz66_zu23_msv";
 guer_vehicleArray pushBackUnique vehTruckAA;
@@ -92,7 +92,7 @@ var_AAF_groundForces = var_AAF_groundForces arrayIntersect var_AAF_groundForces;
 
 // Airforce
 heli_unarmed = 		["RHS_Mi8mt_Cargo_vvsc","RHS_Mi8MTV3_FAB_vvsc","RHS_Mi8AMTSh_FAB_vvsc","rhs_ka60_c"]; // (un-)armed transport helicopters
-heli_armed = 		["RHS_Mi24V_FAB_vdv","RHS_Mi24V_UPK23_vdv"]; // // armed helicopters
+heli_armed = 		["RHS_Mi24V_FAB_vdv","RHS_Mi24V_UPK23_vdv", "RHS_Ka52_UPK23_vvsc", "RHS_Ka52_vvsc"]; // // armed helicopters
 heli_escort = 		"RHS_Mi8AMTSh_vvsc";
 planes = 			["RHS_Su25SM_vvsc"]; // attack planes
 heli_default = 		"RHS_Mi8mt_vvsc";
@@ -107,9 +107,11 @@ indAirForce = 		["RHS_Mi8mt_vvsc"]; // starting/current airforce
 // Config paths for pre-defined groups -- required if group names are used
 cfgInf = (configfile >> "CfgGroups" >> "east" >> "rhs_faction_vdv" >> "rhs_group_rus_vdv_infantry");
 
+_largePatrol = [sol_AT, sol_SL, sol_SN, sol_RFL, sol_RFL, sol_RFL, sol_MG, sol_MED];
+
 // Standard group arrays, used for spawning groups -- can use full config paths, config group names, arrays of individual soldiers
-infPatrol = 		["rhs_group_rus_vdv_infantry_fireteam","rhs_group_rus_vdv_infantry_MANEUVER"]; // 2-3 guys, incl sniper teams
-infGarrisonSmall = 	["rhs_group_rus_vdv_infantry_fireteam","rhs_group_rus_vdv_infantry_MANEUVER","rhs_group_rus_vdv_infantry_MANEUVER"]; // 2-3 guys, to guard towns
+infPatrol = 		["rhs_group_rus_vdv_infantry_fireteam","rhs_group_rus_vdv_infantry_MANEUVER", _largePatrol]; // 2-3 guys, incl sniper teams
+infGarrisonSmall = 	["rhs_group_rus_vdv_infantry_fireteam","rhs_group_rus_vdv_infantry_MANEUVER","rhs_group_rus_vdv_infantry_MANEUVER", _largePatrol]; // 2-3 guys, to guard towns
 infTeamATAA =		["rhs_group_rus_vdv_infantry_section_AT","rhs_group_rus_vdv_infantry_section_AA"]; // missile teams, 4+ guys, for roadblocks and watchposts
 infTeam = 			["rhs_group_rus_vdv_infantry_section_mg","rhs_group_rus_vdv_infantry_section_marksman","rhs_group_rus_vdv_infantry_section_AT","rhs_group_rus_vdv_infantry_section_AA",
 					"rhs_group_rus_vdv_infantry_section_mg","rhs_group_rus_vdv_infantry_section_marksman"]; // teams, 4+ guys
@@ -122,7 +124,7 @@ statMG = 			"rhs_DSHKM_ins";
 statAT = 			"rhs_Kornet_9M133_2_vdv"; // alternatives: rhs_Kornet_9M133_2_vdv, rhs_SPG9M_VDV, rhs_Metis_9k115_2_vdv
 statAA = 			"rhs_Igla_AA_pod_msv";
 statAA2 = 			"rhs_Igla_AA_pod_vdv";
-statMortar = 		"rhs_2b14_82mm_vdv";
+statMortar = 		"rhs_D30_msv";
 
 statMGlow = 		"RHS_NSV_TriPod_VDV";
 statMGtower = 		"rhs_KORD_high_VDV";
@@ -473,6 +475,16 @@ unlockedItems = [
 twustyVefs = [
 	"C_Offroad_02_unarmed_F",
 	"rhsgref_cdf_reg_Mi17Sh"
+];
+
+buyableVefs = [
+	"rhssaf_army_o_2s1",
+	"RHS_BM21_MSV_01",
+	"rhsgref_mi24g_CAS",
+	"rhsgref_ins_zsu234",
+	"RHSGREF_A29B_HIDF",
+	"rhsusf_M1239_M2_Deploy_socom_d",
+	"RHS_MELB_AH6M"
 ];
 
 unlockedBackpacks = [

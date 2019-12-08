@@ -100,8 +100,6 @@ class buy_vehicle
 	BTN_R4(111, $STR_D_BUY_ST_AA, "", "closedialog 0; [vfs select 10] call addFIAveh");	
 	BTN_R5(113, "Attack Heli", "", "closedialog 0; [twustyVefs select 1] call addFIAveh");
 
-	BTN_L5(112, $STR_D_BUY_APC, "", "if (activeAFRF) then {if (player == Slowhand) then {closeDialog 0; [vfs select 11] call addFIAveh;} else {hint localize ""STR_DH_OPCHATTF""};}else {hint localize ""STR_DH_RHSEFN""};");
-
 	};
 };
 
@@ -816,8 +814,10 @@ class exp_menu // 430
 	#define STR_EXP_SAC "closeDialog 0; if (player == Slowhand) then {[expCrate, ""aCache"", 500] remoteExec [""buyGear"", 2];}"
 	#define STR_EXP_MAC "closeDialog 0; if (player == Slowhand) then {[expCrate, ""aCache"", 5000] remoteExec [""buyGear"", 2];}"
 
+	#define STR_BUY_VEH "closeDialog 0; if (player == Slowhand) then {[expCrate, ""Vehicles"", 20000] remoteExec [""buyGear"", 2];}"
 
-	BTN_L1(-1, $STR_D_SOME_CHAR, $STR_D_SP3EOSBE, STR_EXP_SCH);
+
+	BTN_L1(-1, "Buy Vehicle", "20000", STR_BUY_VEH);
 	BTN_L2(-1, $STR_D_MANY_CHAR, $STR_D_SP8EOLBE, STR_EXP_MCH);
 	BTN_L3(-1, $STR_D_SOME_WEA, $STR_D_SP10EOSCW, STR_EXP_SWP);
 	BTN_L4(-1, $STR_D_MANY_WEA, $STR_D_SP25EOLCW, STR_EXP_MWP);
@@ -850,6 +850,7 @@ class wpns_small
 	#define STR_EXP_SNP_S "closeDialog 0; if (player == Slowhand) then {[expCrate, ""Sniper Rifles"", 1000] remoteExec [""buyGear"", 2];}"
 	#define STR_EXP_LCH_S "closeDialog 0; if (player == Slowhand) then {[expCrate, ""Launchers"", 1000] remoteExec [""buyGear"", 2];}"
 	#define STR_EXP_RND_S "closeDialog 0; if (player == Slowhand) then {[expCrate, ""Random"", 1000] remoteExec [""buyGear"", 2];}"
+	
 
 	BTN_L1(-1, $STR_D_ASRILF, "", STR_EXP_ASS_S);
 	BTN_L2(-1, $STR_D_MACHGUN, "", STR_EXP_MGS_S);
@@ -882,10 +883,10 @@ class wpns_large
 	#define STR_EXP_RND_L "closeDialog 0; if (player == Slowhand) then {[expCrate, ""Random"", 2500] remoteExec [""buyGear"", 2];}"
 
 	BTN_L1(-1, $STR_D_ASRILF, "", STR_EXP_ASS_L);
-	BTN_L2(-1, $STR_D_MACHGUN, "", STR_EXP_MGS_L);
-	BTN_L3(-1, $STR_D_LAUN, "", STR_EXP_LCH_L);
+	BTN_L2(-1, $STR_D_MACHGUN, "", STR_EXP_MGS_L); 
+	BTN_L3(-1, $STR_D_LAUN, "", STR_EXP_PIS_L);
 
-	BTN_R1(-1, $STR_D_PIST, "", STR_EXP_PIS_L);
+	BTN_R1(-1, $STR_D_PIST, "", STR_BUY_VEH);
 	BTN_R2(-1, $STR_D_SNIPRILF, "", STR_EXP_SNP_L);
 	BTN_R3(-1, $STR_D_RAND, "", STR_EXP_RND_L);
 

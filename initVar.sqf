@@ -171,6 +171,8 @@ server setVariable ["easyMode",false,true]; // higher income
 server setVariable ["hardMode",false,true];
 server setVariable ["testMode",false,true];
 
+server setVariable ["allItems", []];
+
 staticsToSave = []; publicVariable "staticsToSave";
 staticsData = []; publicVariable "staticsData";
 prestigeOPFOR = 50;//Initial % support for AAF on each city

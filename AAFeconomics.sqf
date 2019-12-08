@@ -46,7 +46,7 @@ if (_resourcesAAF > 5000) then{
 		}; */ //Stef disabled repair radiotower, the mission is buggy, reduntant and pointless
 	};
 };
-
+_skillFIA = server getVariable "skillFIA";
 if (_cuenta == 0) exitWith {resourcesIsChanging = false};
 
 if (((planesAAFcurrent < planesAAFmax) and (helisAAFcurrent > 3)) and (_cuenta > 6)) then {
@@ -56,7 +56,7 @@ if (((planesAAFcurrent < planesAAFmax) and (helisAAFcurrent > 3)) and (_cuenta >
 			publicVariable "indAirForce"
 		};
 	diag_log format ["Econ: airplanes. Current number: %1; current resources: %2", planesAAFcurrent, _resourcesAAF];
-	planesAAFcurrent = planesAAFcurrent + 1;
+	planesAAFcurrent = planesAAFcurrent + (1 * _skillFIA);
 	publicVariable "planesAAFcurrent";
 	_resourcesAAF = _resourcesAAF - (17500*_multiplicador);
 	};
@@ -70,7 +70,7 @@ if (((tanksAAFcurrent < tanksAAFmax) and (APCAAFcurrent > 3)) and (_cuenta > 5) 
 			publicVariable "enemyMotorpool";
 		};
 		diag_log format ["Econ: tanks. Current number: %1; current resources: %2", tanksAAFcurrent, _resourcesAAF];
-		tanksAAFcurrent = tanksAAFcurrent + 1; publicVariable "tanksAAFcurrent";
+		tanksAAFcurrent = tanksAAFcurrent + (1 * _skillFIA); publicVariable "tanksAAFcurrent";
 	    _resourcesAAF = _resourcesAAF - (10000*_multiplicador);
 	};
 };
@@ -83,7 +83,7 @@ if (((helisAAFcurrent < helisAAFmax) and ((helisAAFcurrent < 4) or (planesAAFcur
 			publicVariable "indAirForce"
 		};
 		diag_log format ["Econ: helicopters. Current number: %1; current resources: %2", helisAAFcurrent, _resourcesAAF];
-		helisAAFcurrent = helisAAFcurrent + 1; publicVariable "helisAAFcurrent";
+		helisAAFcurrent = helisAAFcurrent + (1 * _skillFIA); publicVariable "helisAAFcurrent";
 		_resourcesAAF = _resourcesAAF - (7000*_multiplicador);
 	};
 };
@@ -101,12 +101,12 @@ if ((APCAAFcurrent < APCAAFmax) and ((tanksAAFcurrent > 2) or (APCAAFcurrent < 4
 			publicVariable "enemyMotorpool";
 	    };
 	    diag_log format ["Econ: APCs/IFVs. Current number: %1; current resources: %2", APCAAFcurrent, _resourcesAAF];
-	    APCAAFcurrent = APCAAFcurrent + 1; publicVariable "APCAAFcurrent";
+	    APCAAFcurrent = APCAAFcurrent + (1 * _skillFIA); publicVariable "APCAAFcurrent";
 	    _resourcesAAF = _resourcesAAF - (5000*_multiplicador);
 	};
 };
 
-_skillFIA = server getVariable "skillFIA";
+
 if ((skillAAF < (_skillFIA + 2)) && (skillAAF < 17)) then {
 	_coste = 1000 + (1.5*(skillAAF *750));
 	diag_log format ["Econ: AAF skill. Current level: %1; current cost: %2; current resources: %3", skillAAF, _coste, _resourcesAAF];
