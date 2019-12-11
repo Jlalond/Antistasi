@@ -67,11 +67,11 @@ infList_pilots = 	[sol_HPIL, sol_HPIL2, sol_PIL];
 
 // Vehicles
 vehTrucks = 		["rhs_kamaz5350_open_vdv","rhs_kamaz5350_vdv","RHS_Ural_Open_VDV_01","RHS_Ural_VDV_01"]; // trucks that spawn at outposts, etc
-vehPatrol =			["rhs_tigr_m_vdv","RHS_Mi8mt_vvsc"]; // vehicles used for road patrols;
+vehPatrol =			["rhs_tigr_m_vdv","RHS_Mi8mt_vvsc", "rhs_sprut_vdv"]; // vehicles used for road patrols;
 if (activeGREF) then {vehPatrol = vehPatrol + ["rhsgref_BRDM2_HQ_vdv"];};
-vehAPC = 			["rhs_btr80_vdv"]; // APCs
-vehIFV = 			["rhs_bmp2d_vdv","rhs_bmp1p_vdv","rhs_bmd2m","rhs_bmd2k"]; // IFVs
-vehTank = 			["rhs_t72bb_tv","rhs_t72bd_tv","rhs_t90a_tv"]; // MBTs
+vehAPC = 			["rhs_btr80_vdv", "rhs_bmp3m_msv"]; // APCs
+vehIFV = 			["rhs_bmp2d_vdv","rhs_bmp1p_vdv","rhs_bmd2m","rhs_bmd2k", "rhs_bmd4ma_vdv"]; // IFVs
+vehTank = 			["rhs_t80um","rhs_t72bb_tv","rhs_t72bd_tv","rhs_t90a_tv", "rhs_t90sm_tv"]; // MBTs
 vehSupply = 		["rhs_gaz66_ammo_vdv","RHS_Ural_Fuel_VDV_01","rhs_gaz66_repair_vdv","rhs_gaz66_ap2_vdv"]; // supply vehicles (ammo, fuel, med)
 vehAmmo = 			"rhs_gaz66_ammo_vdv"; // ammo truck, for special missions
 vehFuel = 			["RHS_Ural_Fuel_VDV_01"]; // fuel truck for missions
@@ -82,7 +82,7 @@ vehLead = 			["rhs_tigr_sts_3camo_vdv"];};
 standardMRAP = 		["rhs_tigr_vdv","rhs_uaz_vdv"]; // default transport MRAP/car
 vehTruckBox = 		["rhs_gaz66_repair_vdv"]; // repair truck or at least a prop
 vehPatrolBoat = 	["I_Boat_Armed_01_minigun_F"];
-vehDef= 			["rhs_btr80a_vdv"];
+vehDef= 			["rhs_btr80a_vdv", "rhs_t14_tv"];
 
 vehTruckAA = 		"rhs_gaz66_zu23_msv";
 guer_vehicleArray pushBackUnique vehTruckAA;
@@ -92,7 +92,7 @@ var_AAF_groundForces = var_AAF_groundForces arrayIntersect var_AAF_groundForces;
 
 // Airforce
 heli_unarmed = 		["RHS_Mi8mt_Cargo_vvsc","RHS_Mi8MTV3_FAB_vvsc","RHS_Mi8AMTSh_FAB_vvsc","rhs_ka60_c"]; // (un-)armed transport helicopters
-heli_armed = 		["RHS_Mi24V_FAB_vdv","RHS_Mi24V_UPK23_vdv"]; // // armed helicopters
+heli_armed = 		["RHS_Mi24V_FAB_vdv","RHS_Mi24V_UPK23_vdv", "RHS_Ka52_UPK23_vvsc", "RHS_Ka52_vvsc"]; // // armed helicopters
 heli_escort = 		"RHS_Mi8AMTSh_vvsc";
 planes = 			["RHS_Su25SM_vvsc"]; // attack planes
 heli_default = 		"RHS_Mi8mt_vvsc";
@@ -107,9 +107,11 @@ indAirForce = 		["RHS_Mi8mt_vvsc"]; // starting/current airforce
 // Config paths for pre-defined groups -- required if group names are used
 cfgInf = (configfile >> "CfgGroups" >> "east" >> "rhs_faction_vdv" >> "rhs_group_rus_vdv_infantry");
 
+_largePatrol = [sol_AT, sol_SL, sol_SN, sol_RFL, sol_RFL, sol_RFL, sol_MG, sol_MED];
+
 // Standard group arrays, used for spawning groups -- can use full config paths, config group names, arrays of individual soldiers
-infPatrol = 		["rhs_group_rus_vdv_infantry_fireteam","rhs_group_rus_vdv_infantry_MANEUVER"]; // 2-3 guys, incl sniper teams
-infGarrisonSmall = 	["rhs_group_rus_vdv_infantry_fireteam","rhs_group_rus_vdv_infantry_MANEUVER","rhs_group_rus_vdv_infantry_MANEUVER"]; // 2-3 guys, to guard towns
+infPatrol = 		["rhs_group_rus_vdv_infantry_fireteam","rhs_group_rus_vdv_infantry_MANEUVER", _largePatrol]; // 2-3 guys, incl sniper teams
+infGarrisonSmall = 	["rhs_group_rus_vdv_infantry_fireteam","rhs_group_rus_vdv_infantry_MANEUVER","rhs_group_rus_vdv_infantry_MANEUVER", _largePatrol]; // 2-3 guys, to guard towns
 infTeamATAA =		["rhs_group_rus_vdv_infantry_section_AT","rhs_group_rus_vdv_infantry_section_AA"]; // missile teams, 4+ guys, for roadblocks and watchposts
 infTeam = 			["rhs_group_rus_vdv_infantry_section_mg","rhs_group_rus_vdv_infantry_section_marksman","rhs_group_rus_vdv_infantry_section_AT","rhs_group_rus_vdv_infantry_section_AA",
 					"rhs_group_rus_vdv_infantry_section_mg","rhs_group_rus_vdv_infantry_section_marksman"]; // teams, 4+ guys
@@ -122,7 +124,7 @@ statMG = 			"rhs_DSHKM_ins";
 statAT = 			"rhs_Kornet_9M133_2_vdv"; // alternatives: rhs_Kornet_9M133_2_vdv, rhs_SPG9M_VDV, rhs_Metis_9k115_2_vdv
 statAA = 			"rhs_Igla_AA_pod_msv";
 statAA2 = 			"rhs_Igla_AA_pod_vdv";
-statMortar = 		"rhs_2b14_82mm_vdv";
+statMortar = 		"rhs_D30_msv";
 
 statMGlow = 		"RHS_NSV_TriPod_VDV";
 statMGtower = 		"rhs_KORD_high_VDV";
@@ -475,6 +477,16 @@ twustyVefs = [
 	"rhsgref_cdf_reg_Mi17Sh"
 ];
 
+buyableVefs = [
+	"rhssaf_army_o_2s1",
+	"RHS_BM21_MSV_01",
+	"rhsgref_mi24g_CAS",
+	"rhsgref_ins_zsu234",
+	"RHSGREF_A29B_HIDF",
+	"rhsusf_M1239_M2_Deploy_socom_d",
+	"RHS_MELB_AH6M"
+];
+
 unlockedBackpacks = [
 	"rhs_assault_umbts",
 	"rhs_assault_umbts_engineer",
@@ -558,3 +570,242 @@ IND_marker_colour = "ColorGUER";
 
 // Type of this faction's markers
 IND_marker_type = "rhs_flag_vdv";
+
+AllArmors = [
+	 "V_DeckCrew_yellow_F",
+ "V_DeckCrew_blue_F",
+ "V_DeckCrew_green_F",
+ "V_DeckCrew_red_F",
+ "V_DeckCrew_white_F",
+ "V_DeckCrew_brown_F",
+ "V_DeckCrew_violet_F",
+ "rhs_6b23",
+ "rhs_6b23_crew",
+ "rhs_6b23_engineer",
+ "rhs_6b23_medic",
+ "rhs_6b23_rifleman",
+ "rhs_6b23_crewofficer",
+ "rhs_6b23_sniper",
+ "rhs_6b23_6sh92",
+ "rhs_6b23_6sh92_vog",
+ "rhs_6b23_6sh92_vog_headset",
+ "rhs_6b23_6sh92_headset",
+ "rhs_6b23_6sh92_headset_mapcase",
+ "rhs_6b23_6sh92_radio",
+ "rhs_6sh46",
+ "rhs_vest_commander",
+ "rhs_vest_pistol_holster",
+ "rhs_6b23_digi",
+ "rhs_6b23_digi_crew",
+ "rhs_6b23_digi_engineer",
+ "rhs_6b23_digi_medic",
+ "rhs_6b23_digi_rifleman",
+ "rhs_6b23_digi_crewofficer",
+ "rhs_6b23_digi_sniper",
+ "rhs_6b23_digi_6sh92",
+ "rhs_6b23_digi_6sh92_vog",
+ "rhs_6b23_digi_6sh92_vog_headset",
+ "rhs_6b23_digi_6sh92_headset",
+ "rhs_6b23_digi_6sh92_headset_mapcase",
+ "rhs_6b23_digi_6sh92_radio",
+ "rhs_6b23_digi_6sh92_Spetsnaz",
+ "rhs_6b23_digi_6sh92_Vog_Radio_Spetsnaz",
+ "rhs_6b23_digi_6sh92_headset_spetsnaz",
+ "rhs_6b23_digi_6sh92_spetsnaz2",
+ "rhs_6b23_digi_6sh92_Vog_Spetsnaz",
+ "rhs_6b23_ML",
+ "rhs_6b23_ML_crew",
+ "rhs_6b23_ML_engineer",
+ "rhs_6b23_ML_medic",
+ "rhs_6b23_ML_rifleman",
+ "rhs_6b23_ML_crewofficer",
+ "rhs_6b23_ML_sniper",
+ "rhs_6b23_ML_6sh92",
+ "rhs_6b23_ML_6sh92_vog",
+ "rhs_6b23_ML_6sh92_vog_headset",
+ "rhs_6b23_ML_6sh92_headset",
+ "rhs_6b23_ML_6sh92_headset_mapcase",
+ "rhs_6b23_ML_6sh92_radio",
+ "rhs_vydra_3m",
+ "rhs_6b23_vydra_3m",
+ "rhs_6b23_digi_vydra_3m",
+ "rhs_6b23_ML_vydra_3m",
+ "rhs_6b23_6sh116",
+ "rhs_6b23_6sh116_flora",
+ "rhs_6b23_6sh116_od",
+ "rhs_6b23_6sh116_vog",
+ "rhs_6b23_6sh116_vog_flora",
+ "rhs_6b23_6sh116_vog_od",
+ "rhs_6b13",
+ "rhs_6b13_crewofficer",
+ "rhs_6b13_6sh92",
+ "rhs_6b13_6sh92_vog",
+ "rhs_6b13_6sh92_headset_mapcase",
+ "rhs_6b13_6sh92_radio",
+ "rhs_6b13_EMR",
+ "rhs_6b13_EMR_6sh92",
+ "rhs_6b13_EMR_6sh92_vog",
+ "rhs_6b13_EMR_6sh92_headset_mapcase",
+ "rhs_6b13_EMR_6sh92_radio",
+ "rhs_6b13_Flora",
+ "rhs_6b13_Flora_crewofficer",
+ "rhs_6b13_Flora_6sh92",
+ "rhs_6b13_Flora_6sh92_vog",
+ "rhs_6b13_Flora_6sh92_headset_mapcase",
+ "rhs_6b13_Flora_6sh92_radio",
+ "rhs_6b43",
+ "rhs_6sh92",
+ "rhs_6sh92_vog",
+ "rhs_6sh92_vog_headset",
+ "rhs_6sh92_headset",
+ "rhs_6sh92_radio",
+ "rhs_6sh92_digi",
+ "rhs_6sh92_digi_vog",
+ "rhs_6sh92_digi_vog_headset",
+ "rhs_6sh92_digi_headset",
+ "rhs_6sh92_digi_radio",
+ "rhs_6sh92_vsr",
+ "rhs_6sh92_vsr_vog",
+ "rhs_6sh92_vsr_vog_headset",
+ "rhs_6sh92_vsr_headset",
+ "rhs_6sh92_vsr_radio",
+ "rhsusf_iotv_ocp",
+ "rhsusf_iotv_ocp_Grenadier",
+ "rhsusf_iotv_ocp_Medic",
+ "rhsusf_iotv_ocp_Repair",
+ "rhsusf_iotv_ocp_Rifleman",
+ "rhsusf_iotv_ocp_SAW",
+ "rhsusf_iotv_ocp_Squadleader",
+ "rhsusf_iotv_ocp_Teamleader",
+ "rhsusf_iotv_ucp_base",
+ "rhsusf_iotv_ucp",
+ "rhsusf_iotv_ucp_Grenadier",
+ "rhsusf_iotv_ucp_Medic",
+ "rhsusf_iotv_ucp_Repair",
+ "rhsusf_iotv_ucp_Rifleman",
+ "rhsusf_iotv_ucp_SAW",
+ "rhsusf_iotv_ucp_Squadleader",
+ "rhsusf_iotv_ucp_Teamleader",
+ "rhsusf_spc",
+ "rhsusf_spc_rifleman",
+ "rhsusf_spc_iar",
+ "rhsusf_spc_corpsman",
+ "rhsusf_spc_crewman",
+ "rhsusf_spc_light",
+ "rhsusf_spc_marksman",
+ "rhsusf_spc_mg",
+ "rhsusf_spc_sniper",
+ "rhsusf_spc_squadleader",
+ "rhsusf_spc_teamleader",
+ "rhsusf_spc_patchless",
+ "rhsusf_spc_patchless_radio",
+ "rhsusf_spcs_ocp",
+ "rhsusf_spcs_ocp_squadleader",
+ "rhsusf_spcs_ocp_teamleader",
+ "rhsusf_spcs_ocp_teamleader_alt",
+ "rhsusf_spcs_ocp_saw",
+ "rhsusf_spcs_ocp_grenadier",
+ "rhsusf_spcs_ocp_rifleman",
+ "rhsusf_spcs_ocp_rifleman_alt",
+ "rhsusf_spcs_ocp_medic",
+ "rhsusf_spcs_ocp_crewman",
+ "rhsusf_spcs_ocp_machinegunner",
+ "rhsusf_spcs_ocp_sniper",
+ "rhsusf_spcs_ucp",
+ "rhsusf_spcs_ucp_squadleader",
+ "rhsusf_spcs_ucp_teamleader",
+ "rhsusf_spcs_ucp_teamleader_alt",
+ "rhsusf_spcs_ucp_saw",
+ "rhsusf_spcs_ucp_grenadier",
+ "rhsusf_spcs_ucp_rifleman",
+ "rhsusf_spcs_ucp_rifleman_alt",
+ "rhsusf_spcs_ucp_medic",
+ "rhsusf_spcs_ucp_crewman",
+ "rhsusf_spcs_ucp_machinegunner",
+ "rhsusf_spcs_ucp_sniper",
+ "rhsusf_mbav",
+ "rhsusf_mbav_light",
+ "rhsusf_mbav_rifleman",
+ "rhsusf_mbav_mg",
+ "rhsusf_mbav_grenadier",
+ "rhsusf_mbav_medic",
+ "rhsusf_plateframe_sapi",
+ "rhsusf_plateframe_light",
+ "rhsusf_plateframe_rifleman",
+ "rhsusf_plateframe_teamleader",
+ "rhsusf_plateframe_grenadier",
+ "rhsusf_plateframe_machinegunner",
+ "rhsusf_plateframe_marksman",
+ "rhsusf_plateframe_medic",
+ "rhssaf_balistic_vest_base",
+ "rhssaf_tactical_vest_base",
+ "rhssaf_vest_md98_woodland",
+ "rhssaf_vest_md98_md2camo",
+ "rhssaf_vest_md98_digital",
+ "rhssaf_vest_md98_officer",
+ "rhssaf_vest_md98_rifleman",
+ "rhssaf_vest_otv_md2camo",
+ "rhssaf_vest_md99_md2camo_rifleman",
+ "rhssaf_vest_md99_md2camo_rifleman_radio",
+ "rhssaf_vest_md99_digital_rifleman",
+ "rhssaf_vest_md99_digital_rifleman_radio",
+ "rhssaf_vest_md99_woodland_rifleman",
+ "rhssaf_vest_md99_woodland_rifleman_radio",
+ "rhssaf_vest_md99_md2camo",
+ "rhssaf_vest_md99_md2camo_radio",
+ "rhssaf_vest_md99_digital",
+ "rhssaf_vest_md99_digital_radio",
+ "rhssaf_vest_md99_woodland",
+ "rhssaf_vest_md99_woodland_radio",
+ "rhssaf_vest_md12_digital",
+ "rhssaf_vest_md12_m70_rifleman",
+ "rhssaf_vest_md12_digital_desert",
+ "rhssaf_vest_md99a5_md2camo_rifleman",
+ "rhsgref_6b23_khaki",
+ "rhsgref_6b23_khaki_rifleman",
+ "rhsgref_6b23_khaki_sniper",
+ "rhsgref_6b23_khaki_officer",
+ "rhsgref_6b23_khaki_nco",
+ "rhsgref_6b23_khaki_medic",
+ "rhsgref_6b23_ttsko_forest",
+ "rhsgref_6b23_ttsko_forest_rifleman",
+ "rhsgref_6b23_ttsko_mountain",
+ "rhsgref_6b23_ttsko_mountain_rifleman",
+ "rhsgref_6b23_ttsko_mountain_sniper",
+ "rhsgref_6b23_ttsko_mountain_officer",
+ "rhsgref_6b23_ttsko_mountain_nco",
+ "rhsgref_6b23_ttsko_mountain_medic",
+ "rhsgref_6b23_ttsko_digi",
+ "rhsgref_6b23_ttsko_digi_rifleman",
+ "rhsgref_6b23_ttsko_digi_sniper",
+ "rhsgref_6b23_ttsko_digi_officer",
+ "rhsgref_6b23_ttsko_digi_nco",
+ "rhsgref_6b23_ttsko_digi_medic",
+ "rhs_6b5",
+ "rhs_6b5_officer",
+ "rhs_6b5_medic",
+ "rhs_6b5_sniper",
+ "rhs_6b5_rifleman",
+ "rhs_6b5_khaki",
+ "rhs_6b5_officer_khaki",
+ "rhs_6b5_medic_khaki",
+ "rhs_6b5_sniper_khaki",
+ "rhs_6b5_rifleman_khaki",
+ "rhs_6b5_vsr",
+ "rhs_6b5_officer_vsr",
+ "rhs_6b5_medic_vsr",
+ "rhs_6b5_sniper_vsr",
+ "rhs_6b5_rifleman_vsr",
+ "rhs_6b5_ttsko",
+ "rhs_6b5_officer_ttsko",
+"rhs_6b5_medic_ttsko",
+"rhs_6b5_sniper_ttsko",
+"rhs_6b5_rifleman_ttsko",
+"rhsgref_otv_khaki",
+"rhsgref_otv_digi",
+"rhsgref_TacVest_ERDL",
+"rhsgref_alice_webbing",
+"rhsgref_chestrig",
+"rhsgref_chicom"
+];
+

@@ -44,7 +44,7 @@ if !(_forceBase == "") then {
 				_exit = true;
 			} else {
 				if (count smallCAmrk > 0) then {
-					_nearestMarker = [smallCAmrk,_marker] call BIS_fnc_nearestPosition;
+					_nearestMarker = [smallCAmrk,_marker] call BIS_fnc_nearestPosition;*
 					if (getMarkerPos _nearestMarker distance _marker < (distanciaSPWN/2)) then {_exit = true};
 				};
 			};
@@ -61,7 +61,7 @@ if !(_forcedAttack) then {
 
 _involveCSAT = false;
 if ((_base == "") AND (_airport == "")) then {
-	_involveCSAT = (random 100 < server getVariable "prestigeCSAT");
+	_involveCSAT = (random 50 < server getVariable "prestigeCSAT");
 };
 
 if ((_base == "") AND (_airport == "") AND !(_involveCSAT)) exitWith {diag_log format ["Info: Small attack on %1 called off, no base to attack from.", _marker]};

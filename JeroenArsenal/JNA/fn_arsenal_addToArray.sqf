@@ -22,31 +22,31 @@ private _unlockCount = 8;
 //uses indices from gearList.sql
 switch (_name call jn_fnc_arsenal_itemType) do {
 //customize count per arsenal category here:
-case 0: {_unlockCount = 60}; // primary
-case 1: {_unlockCount = 60}; // secondary
-case 2: {_unlockCount = 60}; // handgun
-case 3: {_unlockCount = 5}; // uniform
-case 4: {_unlockCount = 60}; // vest
-case 5: {_unlockCount = 20}; // backpack
-case 6: {_unlockCount = 15}; // helmet
-case 7: {_unlockCount = 60}; // goggle
-case 8: {_unlockCount = 60}; // nightvision
-case 9: {_unlockCount = 60}; // binocular
+case 0: {_unlockCount = 12000}; // primary
+case 1: {_unlockCount = 12000}; // secondary
+case 2: {_unlockCount = 12000}; // handgun
+case 3: {_unlockCount = 12000}; // uniform
+case 4: {_unlockCount = 12000}; // vest
+case 5: {_unlockCount = 12000}; // backpack
+case 6: {_unlockCount = 12000}; // helmet
+case 7: {_unlockCount = 12000}; // goggle
+case 8: {_unlockCount = 12000}; // nightvision
+case 9: {_unlockCount = 12000}; // binocular
 case 10: {_unlockCount = 1}; // map
-case 11: {_unlockCount = 10}; // gps
+case 11: {_unlockCount = 1}; // gps
 case 12: {_unlockCount = 1}; // radio
 case 13: {_unlockCount = 1}; // compass
 case 14: {_unlockCount = 1}; // watch
-case 18: {_unlockCount = 30}; // optic
-case 19: {_unlockCount = 30}; // muzzle
-case 20: {_unlockCount = 30}; // accessory
-case 21: {_unlockCount = 30}; // bipod
-case 22: {_unlockCount = 40}; // grenade
+case 18: {_unlockCount = 12000}; // optic
+case 19: {_unlockCount = 12000}; // muzzle
+case 20: {_unlockCount = 12000}; // accessory
+case 21: {_unlockCount = 12000}; // bipod
+case 22: {_unlockCount = 10}; // grenade
 case 23: {_unlockCount = 10}; // mine
-case 24: {_unlockCount = 15}; // misc
-case 26: {_unlockCount = 50}; /* ammunition (50 means 50 bullets, not 50 magazines.
+case 24: {_unlockCount = 10}; // misc
+case 26: {_unlockCount = 12000}; /* ammunition (50 means 50 bullets, not 50 magazines.
 Alter with care, because also (single-piece-counted) launcher missles are affected by this)*/
-default {_unlockCount = 60}; // default value for everything else; should not be needed, just to be sure
+default {_unlockCount = 12000}; // default value for everything else; should not be needed, just to be sure
 };
 {
 private _index2 = _forEachIndex;
