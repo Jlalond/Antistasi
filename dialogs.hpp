@@ -814,7 +814,7 @@ class exp_menu // 430
 	#define STR_EXP_SAC "closeDialog 0; if (player == Slowhand) then {[expCrate, ""aCache"", 500] remoteExec [""buyGear"", 2];}"
 	#define STR_EXP_MAC "closeDialog 0; if (player == Slowhand) then {[expCrate, ""aCache"", 5000] remoteExec [""buyGear"", 2];}"
 
-	#define STR_BUY_VEH "closeDialog 0; if (player == Slowhand) then {[expCrate, ""Vehicles"", 20000] remoteExec [""buyGear"", 2];}"
+	#define STR_BUY_VEH "closeDialog 0; if (player == Slowhand) then {[expCrate, ""Vehicles"", 20000, position player] call buyGear;}"
 
 
 	BTN_L1(-1, "Buy Vehicle", "20000", STR_BUY_VEH);

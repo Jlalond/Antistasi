@@ -247,6 +247,17 @@ publicVariable "reducedGarrisons";
 publicVariable "replaceFIA";
 publicVariable "static_playerSide";
 
+_armors = "((configName (_x)) isKindof ['Bag_Base', configFile >> 'cfgVehicles'])" configClasses (configFile >> "cfgVehicles");
+armorItems = _armors apply {configName _x};
+allWeapons = lockedWeapons - vanillaWeapons;
+allItems = gear_allAccessories  - vanillaAccessories;  
+
+
+publicVariable "allWeapons";
+publicVariable "allItems";
+publicVariable "armorItems";
+
+
 if (isMultiplayer) then {[[petros,"locHint","STR_HINTS_INITVAR"],"commsMP"] call BIS_fnc_MP;};
 
 diag_log "InitVar.sqf: end";

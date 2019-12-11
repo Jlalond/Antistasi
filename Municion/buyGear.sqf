@@ -1,6 +1,7 @@
 _c = _this select 0;
 _t = _this select 1;
 _m = _this select 2;
+_playerPos = _this select 3;
 if (count _this > 2) then {_p = _this select 3};
 
 _f = 0;
@@ -39,7 +40,8 @@ if !(count (lockedWeapons - _standardWeapons) == 0) then {
 //}; "
 // fireman 16/08 This ruin the rhs/extra mod _weapons
 // Untill no negative results this is a fix for the irish men
-
+_scriptText = format ["Case: %1", _t];
+_scriptText remoteExec ["hint", -2];
 _noGear = false;
 switch (_t) do {
 	case "ASRifles": {
@@ -182,10 +184,14 @@ switch (_t) do {
 		};
 	};
 	case "Vehicles": {
+		hint "Hit Vehicle Block";
 		if(true) exitWith {
-			_pos = getPos expCrate;
 			_veh = buyableVefs call BIS_fnc_selectRandom;
-			createVehicle [_veh, _pos findEmptyPosition[20, 100]];
+			_text = format ["You Bought Vehicle: %1", _veh];
+			_text remoteExec ["hint", -2];
+			_edge = 20;
+			_vehPos = _playerPos findEmptyPosition[5,200, _VEH];
+			createVehicle [_veh, _playerPos, _vehPos];
 		};
 	};
 	case "aCache": {

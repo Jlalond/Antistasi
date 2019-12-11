@@ -215,5 +215,7 @@ call compile preprocessFileLineNumbers "Compositions\artillery.sqf";
 if ((isMultiplayer) and (isServer)) then {[[petros,"locHint","STR_HINTS_INITCUNCS"],"commsMP"] call BIS_fnc_MP};
 
 if(isServer) then {
+	server setVariable["hqItemCrate", objNull];
 	execVM "buildResources.sqf";
+	execVM "artilleryWatcher.sqf";
 }
