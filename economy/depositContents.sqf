@@ -19,15 +19,9 @@ if(_veh distance _hqMarker < 40) then
 		_hqitemCrate setPos (_hqMarker findEmptyPosition[0, 40]);
 		publicVariable "hqItemCrate";
 	};
-	_arr = itemCargo _veh + weaponCargo _veh + magazineCargo _veh + backpackCargo _veh;
-	_weapons = _arr arrayIntersect allWeapons;
-	_arr apply 
-	{ _magazines = getArray (configFile / "CfgWeapons" / _x / "magazines");
-	  _hqitemCrate addItemCargoGlobal[_magazines call BIS_fnc_selectRandom, 10];
-	};
-	_hqitemCrate addMagazineCargoGlobal[explosiveRounds call BIS_fnc_selectRandom, 10];
+
+	[_hqitemCrate] call AS_depositShippedItems;
 	
-	_arr apply {_hqitemCrate addItemCargoGlobal[_x, 1]}; 
 	"Some resources have been left at the base" remoteExec ["hint", -2]; 
 };
 

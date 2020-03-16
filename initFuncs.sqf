@@ -198,6 +198,7 @@ ACErespawn = compile preProcessFileLineNumbers "Revive\ACErespawn.sqf";
 AS_shipArray = compile preProcessFileLineNumbers "economy\shipArray.sqf";
 AS_depositContents = compile preProcessFileLineNumbers "economy\depositContents.sqf";
 AS_getCargoConvoy = compile preProcessFileLineNumbers "economy\economy_units\getCargoConvoy.sqf";
+AS_depositShippedItems = compile preprocessFileLineNumbers "economy\depsoitShippedItems.sqf";
 
 if (activeJNA) then {
 	if (isServer) then {
