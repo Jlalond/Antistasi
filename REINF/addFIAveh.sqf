@@ -1,20 +1,22 @@
-if (player != player getVariable ["owner",player]) exitWith {hint "You cannot buy vehicles while you are controlling AI"};
-
+﻿if (player != player getVariable ["owner",player]) exitWith {hint "You cannot buy vehicles while you are controlling AI"};
+hint "Entered Function";
 _chequeo = false;
 {
 	if (((side _x == side_red) or (side _x == side_green)) and (_x distance player < safeDistance_recruit) and (not(captive _x))) then {_chequeo = true};
 } forEach allUnits;
 
 if (_chequeo) exitWith {Hint "You cannot buy vehicles with enemies nearby"};
-
+hint "Made it bast Distance Check";
 private ["_tipoVeh","_coste","_resourcesFIA","_marcador","_pos","_veh"];
-
 _tipoVeh = _this select 0;
-_milveh = vfs select [3,10];
+hint "Made it past tipoVeh";
+_milveh = vfs select [0, 11];
 _milstatics = vfs select [7,4];
+hint "Made it past Mil array declaration";
 
 _coste = [_tipoVeh] call vehiclePrice;
 
+hint "Made it past cost";
 if (!isMultiPlayer) then {_resourcesFIA = server getVariable "resourcesFIA"} else
 	{
 	if (player != Slowhand) then
@@ -30,6 +32,7 @@ if (!isMultiPlayer) then {_resourcesFIA = server getVariable "resourcesFIA"} els
 if (_resourcesFIA < _coste) exitWith {hint format ["You do not have enough money for this vehicle: %1 € required",_coste]};
 _pos = position player findEmptyPosition [10,50,_tipoVeh];
 if (count _pos == 0) exitWith {hint "Not enough space to place this type of vehicle"};
+hint "Line 44";
 _veh = _tipoVeh createVehicle _pos;
 //If it's a quadbike, make it loadable with logistics script
 if (_tipoVeh == (vfs select 3)) then

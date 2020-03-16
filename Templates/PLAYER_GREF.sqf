@@ -51,6 +51,8 @@ guer_grp_sentry = 		[guer_sol_GL, guer_sol_RFL]; // Cpl, Pvt
 guer_grp_AT = 			[guer_sol_SL, guer_sol_LAT]; // Cpl, Pvt
 guer_grp_squad = 		[guer_sol_SL, guer_sol_GL, guer_sol_LAT, guer_sol_AR]; // Sgt, Cpl, Pvt, Pvt
 guer_grp_team = 		[guer_sol_SL, guer_sol_GL, guer_sol_LAT, guer_sol_AR, guer_sol_MRK, guer_sol_MED, guer_sol_RFL, guer_sol_ENG, guer_sol_RFL, guer_sol_RFL, guer_sol_RFL, guer_sol_AA]; // Sgt, Cpl, Pvt, Pvt, cpl, pvt, pvt, pvt
+guer_grp_crew = 		[guer_sol_R_L, guer_sol_R_L];
+guer_grp_AA = 			[guer_sol_SL, guer_sol_AA, guer_sol_AA, guer_sol_AA, guer_sol_AA, guer_sol_MRK, guer_sol_ENG];
 
 
 /*
@@ -59,7 +61,7 @@ These are the vehicles and statics that you can buy at HQ. Currently, the array 
 3-10: military vehicles and statics
 */
 vfs = [
-	"C_Offroad_01_F",
+	"C_Offroad_01_F",  //0
 	"C_Van_01_transport_F",
 	"RHS_Mi8amt_civilian",
 	"I_G_Quadbike_01_F",
@@ -71,7 +73,9 @@ vfs = [
 	"rhs_Kornet_9M133_2_vdv",
 	"rhsgref_ins_g_ZU23",
 	"rhsgref_ins_g_btr70",
-	"rhsgref_ins_g_gaz66_r142"
+	"rhsgref_ins_g_gaz66_r142",
+	"C_Offroad_02_unarmed_F",
+	"rhsgref_cdf_reg_mi17Sh" //14
 ];
 
 // Name of the faction

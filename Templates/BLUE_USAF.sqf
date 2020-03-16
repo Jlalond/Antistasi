@@ -111,7 +111,7 @@
 
 	bluLMG = 	[
 		"rhs_weap_m249_pip_S_vfg",	//Tier1
-		"rhs_weap_m249_pip_S_vfg"	//Tier2
+		"rhs_weap_m249_pip_S_vfg",	//Tier2
 		"rhs_weap_m27iar_grip"
 	];
 

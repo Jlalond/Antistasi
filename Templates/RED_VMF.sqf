@@ -20,7 +20,7 @@ opCASFW = 			["RHS_Su25SM_vvs","RHS_T50_vvs_generic"]; // To-199 Neophron (CAS)
 opUAVsmall = 		"rhs_pchela1t_vvs"; // Tayran AR-2
 
 // air force
-opAir = 			["rhs_ka60_grey","rhs_mi28n_vvs"];
+opAir = 			["rhs_ka60_grey","rhs_mi28n_vvs", ""];
 dogfight = 			["rhs_mig29s_vvs"];
 
 // self-propelled anti air
@@ -30,7 +30,7 @@ opTruck = 			"rhs_kamaz5350_vdv";
 
 opMRAPu = 			"rhs_tigr_vmf";
 
-opIFV = 			["rhs_bmp2k_vmf"];
+opIFV = 			["rhs_t80um", "rhs_t90a_tv", "rhs_t14_tv"];
 
 opArtillery = 		"rhs_D30_vdv";
 opArtilleryAmmoHE = "rhs_mag_3of56_10";

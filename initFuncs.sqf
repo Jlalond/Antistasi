@@ -147,6 +147,7 @@ genInitBASES = compile preProcessFileLineNumbers "CREATE\genInitBASES.sqf";
 genRoadPatrol = compile preProcessFileLineNumbers "CREATE\genRoadPatrol.sqf";
 genVEHinit = compile preProcessFileLineNumbers "CREATE\genVEHinit.sqf";
 
+
 createCampFIA = compile preProcessFileLineNumbers "CREATE\createCampFIA.sqf";
 createNATOpuesto = compile preProcessFileLineNumbers "CREATE\createNATOpuesto.sqf";
 NATOQRF = compile preProcessFileLineNumbers "CREATE\NATOQRF.sqf";
@@ -193,6 +194,11 @@ rankCheck = compile preprocessFileLineNumbers "Scripts\rankCheck.sqf";
 
 ACErespawn = compile preProcessFileLineNumbers "Revive\ACErespawn.sqf";
 
+// resource Code
+AS_shipArray = compile preProcessFileLineNumbers "economy\shipArray.sqf";
+AS_depositContents = compile preProcessFileLineNumbers "economy\depositContents.sqf";
+AS_getCargoConvoy = compile preProcessFileLineNumbers "economy\economy_units\getCargoConvoy.sqf";
+
 if (activeJNA) then {
 	if (isServer) then {
 		[(unlockedWeapons + unlockedMagazines + unlockedItems + unlockedBackpacks) arrayIntersect (unlockedWeapons + unlockedMagazines + unlockedItems + unlockedBackpacks)] call AS_fnc_JNA_setupGear;
@@ -207,3 +213,9 @@ call compile preprocessFileLineNumbers "Compositions\cmpOP.sqf";
 call compile preprocessFileLineNumbers "Compositions\artillery.sqf";
 
 if ((isMultiplayer) and (isServer)) then {[[petros,"locHint","STR_HINTS_INITCUNCS"],"commsMP"] call BIS_fnc_MP};
+
+if(isServer) then {
+	server setVariable["hqItemCrate", objNull];
+	execVM "buildResources.sqf";
+	execVM "artilleryWatcher.sqf";
+}

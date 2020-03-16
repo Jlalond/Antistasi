@@ -1,4 +1,4 @@
-version=53;
+version=55;
 class EditorData
 {
 	moveGridStep=1;
@@ -110,7 +110,7 @@ class AddonsMetaData
 randomSeed=8109385;
 class ScenarioData
 {
-	author="barbolani";
+	author="barbolani and Twusty";
 };
 class Mission
 {

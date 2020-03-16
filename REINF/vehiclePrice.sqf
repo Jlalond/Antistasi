@@ -13,6 +13,8 @@ if (_coste == 0) then {
 		if (_tipo in vehIFV) exitWith {_coste = 2000};
 		if (_tipo in vehTank) exitWith {_coste = 5000};
 		if (_tipo == "C_Van_01_fuel_F") exitWith {_coste = 50};
+		if (_tipo == "rhsgref_cdf_reg_mi17Sh") exitWith { _coste = 12000};
+		if (_tipo == "C_Offroad_02_unarmed_F") exitWith { _coste = 400};
 		if (_tipo in CIV_vehicles) exitWith {_coste = 25};
 		if (_tipo in guer_vehicleArray) exitWith {_coste = 200};
 

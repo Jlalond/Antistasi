@@ -22,6 +22,7 @@ call {
 		_mrkD setMarkerType guer_marker_type;
 	};
 	if (_marker in fabricas) exitWith {
+		server setVariable["bluFactories", (server getVariable["bluFactories", 0]) + 1];
 		_mrkD setMarkerText format [localize "STR_GL_MAP_FAC"+": %1", count (garrison getVariable _marker)];
 	};
 	if (_marker in puertos) exitWith {

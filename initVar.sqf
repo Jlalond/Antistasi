@@ -121,7 +121,7 @@ server setVariable ["genAAlocked",true,true];
 {server setVariable [_x,200,true]} forEach [guer_sol_AR,guer_sol_GL,guer_sol_MRK,guer_sol_LAT]; // Stef Temporarnely increase to balance the not requirement
 {server setVariable [_x,100,true]} forEach [guer_sol_SL,guer_sol_OFF,guer_sol_SN,guer_sol_AA];
 {server setVariable [_x,100,true]} forEach infList_regular;
-{server setVariable [_x,80,true]} forEach infList_auto;
+{server setVariable [_x,20,true]} forEach infList_auto;
 {server setVariable [_x,150,true]} forEach infList_crew;
 {server setVariable [_x,150,true]} forEach infList_pilots;
 {server setVariable [_x,200,true]} forEach infList_special;
@@ -142,12 +142,18 @@ server setVariable [vfs select 7,400,true];
 server setVariable [vfs select 8,800,true];
 server setVariable [vfs select 9,800,true];
 server setVariable [vfs select 10,800,true];
+server setVariable [vfs select 13,400,true];
+server setVariable [vfs select 14,12000,true];
+
+server setVariable [twustyVefs select 1, 12000, true];
+server setVariable [twustyVefs select 0, 400, true];
 
 if (activeAFRF) then {
 	server setVariable [vfs select 2,6000,true];
 	server setVariable [vfs select 11,5000,true];
 	server setVariable [vfs select 12,600,true];
 	server setVariable [vehTruckAA, 800, true];
+
 };
 
 server setVariable ["hr",8,true];//initial HR value
@@ -164,6 +170,8 @@ server setVariable ["enableWpnProf",true,true]; // class-based weapon proficienc
 server setVariable ["easyMode",false,true]; // higher income
 server setVariable ["hardMode",false,true];
 server setVariable ["testMode",false,true];
+
+server setVariable ["allItems", []];
 
 staticsToSave = []; publicVariable "staticsToSave";
 staticsData = []; publicVariable "staticsData";
@@ -238,6 +246,17 @@ publicVariable "FIA_RB_list";
 publicVariable "reducedGarrisons";
 publicVariable "replaceFIA";
 publicVariable "static_playerSide";
+
+_armors = "((configName (_x)) isKindof ['Bag_Base', configFile >> 'cfgVehicles'])" configClasses (configFile >> "cfgVehicles");
+armorItems = _armors apply {configName _x};
+allWeapons = lockedWeapons - vanillaWeapons;
+allItems = gear_allAccessories  - vanillaAccessories;  
+
+
+publicVariable "allWeapons";
+publicVariable "allItems";
+publicVariable "armorItems";
+
 
 if (isMultiplayer) then {[[petros,"locHint","STR_HINTS_INITVAR"],"commsMP"] call BIS_fnc_MP;};
 

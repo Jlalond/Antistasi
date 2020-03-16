@@ -1,5 +1,6 @@
 private ["_hr","_resourcesFIA","_hrT","_resourcesFIAT"];
 waitUntil {!resourcesIsChanging};
+server setVariable["crate", objNull];
 resourcesIsChanging = true;
 _hr = _this select 0;
 _resourcesFIA = _this select 1;
