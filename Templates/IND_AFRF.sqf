@@ -381,9 +381,7 @@ if (activeGREF) then {
 	];
 } else {
 	unlockedWeapons = [
-		"rhs_weap_makarov_pm",
-		"rhs_weap_pp2000",
-		"rhs_weap_pp2000_folded"
+		"rhs_weap_makarov_pm"
 	];
 
 	unlockedRifles = [
@@ -403,8 +401,6 @@ unlockedItems = [
 	"ItemMap",
 	"ItemWatch",
 	"ItemCompass",
-	"FirstAidKit",
-	"Medikit",
 	"ToolKit",
 	"rhs_acc_pgs64_74u", // << AKS-74UN muzzle attachment
 	"rhs_acc_dtk", // << default AK74 muzzle attachment
