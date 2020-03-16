@@ -1446,7 +1446,7 @@ explosiveRounds = [
 	"rhsusf_40mm_white"
 ];
 
-allAceMedical = ["ACE_bloodIV_500","ACE_bloodIV","ACE_epinephrine","ACE_morphine","ACE_bodyBag","ACE_elasticBandage","ACE_bloodIV_250","ACE_packingBandage","ACE_personalAidKit","ACE_plasmaIV","ACE_plasmaIV_500","ACE_plasmaIV_250","ACE_salineIV","ACE_salineIV_500","ACE_salineIV_250","ACE_surgicalKit","ACE_tourniquet","ACE_adenosine","ACE_atropine","ACE_quikclot"];
+allAceMedical = ["ACE_fieldDressing", "ACE_bloodIV_500","ACE_bloodIV","ACE_epinephrine","ACE_morphine","ACE_bodyBag","ACE_bloodIV_250","ACE_tourniquet"];
 
 
 };

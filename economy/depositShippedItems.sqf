@@ -3,7 +3,7 @@ _fiaSkill = server getVariable ["skillFIA",0];
 
 _itemsToDeposit = [];
 _randomSum = random[20, 101];
-_multiple = _fiaSkill mod 5;
+_multiple = _fiaSkill / 5;
 _temp = _randomSum * _multiple;
 while {_temp > 0} do {
 	_option = random[0, 3];
@@ -46,6 +46,12 @@ while {_temp > 0} do {
 
 		_crate addItemCargoGlobal[_weapon, random[1, 5]];
 		_magazines = getArray (configFile / "CfgWeapons" / _weapon / "magazines");
-		_crate addMagazineCargoGlobal [_magazines select 0, random[6, 15]];
+		_crate addMagazineCargoGlobal [_magazines call BIS_fnc_selectRandom, random[6, 15]];
 	}
+	else
+	{
+		_crate addItemCargoGlobal[AllArmors call BIS_fnc_selectRandom, random[1, 5]];
+	};
+
+	_crate addItemCargoGlobal[gear_allAccessories call BIS_fnc_selectRandom, random[0, 4]];
 }
