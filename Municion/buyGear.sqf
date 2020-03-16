@@ -189,8 +189,8 @@ switch (_t) do {
 			_veh = buyableVefs call BIS_fnc_selectRandom;
 			_text = format ["You Bought Vehicle: %1", _veh];
 			_text remoteExec ["hint", -2];
-			_vehPos = [_playerPos, 1, 150, 3, 0, 20, 0] call BIS_fnc_findSafePos;
-			createVehicle [_veh, _playerPos, _vehPos];
+			_vehPos = [getPos expCrate, 1, 150, 3, 0, 20, 0] call BIS_fnc_findSafePos;
+			createVehicle [_veh, _vehPos];
 		};
 	};
 	case "aCache": {
