@@ -1446,6 +1446,27 @@ explosiveRounds = [
 	"rhsusf_40mm_white"
 ];
 
+allAceMedical = ["ACE_bloodIV_500","ACE_bloodIV","ACE_epinephrine","ACE_morphine","ACE_bodyBag","ACE_elasticBandage","ACE_bloodIV_250","ACE_packingBandage","ACE_personalAidKit","ACE_plasmaIV","ACE_plasmaIV_500","ACE_plasmaIV_250","ACE_salineIV","ACE_salineIV_500","ACE_salineIV_250","ACE_surgicalKit","ACE_tourniquet","ACE_adenosine","ACE_atropine","ACE_quikclot"];
+
+
+};
+
+basicWeapons = [
+	"hlc_rifle_L1A1SLR",
+	"hlc_rifle_G3A3",
+	"hlc_smg_mp5sd5",
+	"rhs_weap_kar98k",
+	"rhs_weap_m1garand_sa43",
+	"rhs_weap_m84",
+	"rhs_weap_scorpion",
+	"rhs_weap_m92",
+	"rhs_weap_mg42",
+	"rhs_weap_m38",
+	"rhs_weap_MP44",
+	"rhs_weap_tt33"
+];
+
 _backPackClasses = "((configName (_x)) isKindof ['Bag_Base', configFile >> 'cfgVehicles'])" configClasses (configFile >> "cfgVehicles"); 
 backPacks = _backPackClasses apply {configName _x};
-};
+
+producableAceItems = aceAccessories + allAceMedical + aceItems;
