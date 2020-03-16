@@ -216,6 +216,6 @@ if ((isMultiplayer) and (isServer)) then {[[petros,"locHint","STR_HINTS_INITCUNC
 
 if(isServer) then {
 	server setVariable["hqItemCrate", objNull];
-	execVM "buildResources.sqf";
-	execVM "artilleryWatcher.sqf";
+	execVM "economy\buildResources.sqf";
+	execVM "AI\artilleryWatcher.sqf";
 }

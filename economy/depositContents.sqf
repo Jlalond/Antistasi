@@ -21,12 +21,13 @@ if(_veh distance _hqMarker < 40) then
 	};
 	_arr = itemCargo _veh + weaponCargo _veh + magazineCargo _veh + backpackCargo _veh;
 	_weapons = _arr arrayIntersect allWeapons;
-	_weapons apply {
-		_mag = getArray (configFile / "CfgWeapons" / _x / "magazines");
-		_magChoise = _mag call BIS_fnc_selectRandom;
-		hqItemCrate addItemCargoGlobal[_magChoise, 10];
+	_arr apply 
+	{ _magazines = getArray (configFile / "CfgWeapons" / _x / "magazines");
+	  _hqitemCrate addItemCargoGlobal[_magazines call BIS_fnc_selectRandom, 10];
 	};
-	_arr apply {hqItemCrate addItemCargoGlobal[_x, 1]}; 
+	_hqitemCrate addMagazineCargoGlobal[explosiveRounds call BIS_fnc_selectRandom, 10];
+	
+	_arr apply {_hqitemCrate addItemCargoGlobal[_x, 1]}; 
 	"Some resources have been left at the base" remoteExec ["hint", -2]; 
 };
 

@@ -16,12 +16,13 @@ while{true} do {
 
 	if(count _players > 0) then {
 		sleep 20;
-		_target = _players call BIS_fnc_selectRandom; 
+		_targetPlayer = position _players call BIS_fnc_selectRandom;
+		_target = [_targetPlayer select 0 + random [50, 500], _targetPlayer select 1 + random[50, 500]]; 
 		_roundType = _artilleryRounds call BIS_fnc_selectRandom;
-		_radius = random [50, 200];
-		_roundNum = random [5, 20, 50];
+		_radius = random [200, 500];
+		_roundNum = random 5;
 		[_target, _roundType, _radius, _roundNum, 10] spawn BIS_fnc_fireSupportVirtual;
-		_intervalAmount = random[5, 20] * 60;
+		_intervalAmount = 600; // check again in 10 minutes
 	} else {
 		_intervalAmount = 60; // check again in 1 minute.
 	};
