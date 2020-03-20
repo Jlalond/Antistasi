@@ -41,9 +41,9 @@ case 18: {_unlockCount = 12000}; // optic
 case 19: {_unlockCount = 12000}; // muzzle
 case 20: {_unlockCount = 12000}; // accessory
 case 21: {_unlockCount = 12000}; // bipod
-case 22: {_unlockCount = 10}; // grenade
-case 23: {_unlockCount = 10}; // mine
-case 24: {_unlockCount = 10}; // misc
+case 22: {_unlockCount = 10000}; // grenade
+case 23: {_unlockCount = 10000}; // mine
+case 24: {_unlockCount = 10000}; // misc
 case 26: {_unlockCount = 12000}; /* ammunition (50 means 50 bullets, not 50 magazines.
 Alter with care, because also (single-piece-counted) launcher missles are affected by this)*/
 default {_unlockCount = 12000}; // default value for everything else; should not be needed, just to be sure

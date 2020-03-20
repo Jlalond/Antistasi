@@ -198,7 +198,13 @@ ACErespawn = compile preProcessFileLineNumbers "Revive\ACErespawn.sqf";
 AS_shipArray = compile preProcessFileLineNumbers "economy\shipArray.sqf";
 AS_depositContents = compile preProcessFileLineNumbers "economy\depositContents.sqf";
 AS_getCargoConvoy = compile preProcessFileLineNumbers "economy\economy_units\getCargoConvoy.sqf";
-AS_depositShippedItems = compile preprocessFileLineNumbers "economy\depsoitShippedItems.sqf";
+AS_depositShippedItems = compile preprocessFileLineNumbers "economy\depositShippedItems.sqf";
+
+// Dynamic response code
+AS_createEnemyInfantryGroup = compile preprocessFile "AI\AI-generation\createEnemyInfantryGroup.sqf";
+AS_createEnemyAirGroup = compile preprocessFile "AI\AI-generation\createEnemyAirGroup.sqf";
+AS_dynamicDespawn = compile preprocessFile "AI\dynamicDespawn.sqf";
+AS_dynamicEnemyResponse = compile preprocessFile "AI\dynamicEnemyResponse.sqf";
 
 if (activeJNA) then {
 	if (isServer) then {

@@ -20,7 +20,7 @@ opCASFW = 			["RHS_Su25SM_vvs","RHS_T50_vvs_generic"]; // To-199 Neophron (CAS)
 opUAVsmall = 		"rhs_pchela1t_vvs"; // Tayran AR-2
 
 // air force
-opAir = 			["rhs_ka60_grey","rhs_mi28n_vvs", ""];
+opAir = 			["rhs_ka60_grey","rhs_mi28n_vvs"];
 dogfight = 			["rhs_mig29s_vvs"];
 
 // self-propelled anti air
@@ -52,6 +52,8 @@ opI_AAR = 	"rhs_vmf_recon_machinegunner_assistant";
 opI_SP = 	"rhs_vmf_recon_rifleman_asval";
 opI_GL =	"rhs_vmf_recon_grenadier";
 opI_LAT = 	"rhs_vmf_recon_rifleman_lat";
+
+opInfantryTypes = [opI_MK, opI_MED, opI_RFL1, opI_RFL2, opI_AR, opI_AR2, opI_SL, opI_MK2, opI_MK2, opI_SP, opI_GL, opI_LAT];
 
 // config path for infantry groups
 opCfgInf = 			(configfile >> "CfgGroups" >> "east" >> "OPF_F" >> "Infantry");
