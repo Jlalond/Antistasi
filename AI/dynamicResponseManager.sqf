@@ -1,6 +1,8 @@
 if(!isServer) exitWith {};
 
 while{true} do {
+	_vmf = server getVariable["prestigeCSAT", 1];
+	waitUntil {_vmf > 30};
 	_mrker = objNull;
 	waitUntil
 	{
@@ -19,7 +21,5 @@ while{true} do {
 	};
 
 	[_mrker] call AS_dynamicEnemyResponse;
-
-	_vmf = server getVariable["prestigeCSAT", 1];
 	sleep (random [60, 500, 1000 - (_vmf * 25)]);
 };
