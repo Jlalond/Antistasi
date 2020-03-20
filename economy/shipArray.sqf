@@ -1,10 +1,9 @@
-params ["_array", "_position"];
+params ["_position"];
 
 _vehicles = [_position] call AS_getCargoConvoy;
 
 _cargoVeh = _vehicles select 0;
 _cargoVeh setVehicleLock "LOCKED";
-_array apply {_cargoVeh addItemCargoGlobal[_x, 1]};
 _group = createGroup [west, true];
 _eng = _group createUnit [guer_sol_ENG, _position, [], 0, "FORM"];
 _eng moveInDriver _cargoVeh;
