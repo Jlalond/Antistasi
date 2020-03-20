@@ -44,6 +44,8 @@ flag_savingServer = true;
 ["enableOldFT",server getVariable ["enableFTold",false]] call fn_saveData;
 ["enableMemAcc",server getVariable ["enableMemAcc",true]] call fn_saveData;
 ["campaign_playerList",server getVariable ["campaign_playerList",[]]] call fn_saveData;
+["heavy_vehicle_ammo", server getVariable ["heavy_vehicle_ammo", 0]] call fn_saveData;
+["hqItemCrate", server getVariable ["hqItemCrate", objNull]] call fn_saveData;
 
 //Sparker's War Statistics data
 //["ws_grid", ws_grid] call fn_saveData;

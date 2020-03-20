@@ -4,6 +4,7 @@ allWeapons = lockedWeapons - vanillaWeapons;
 publicVariable "allWeapons";
 _gear = gear_allAccessories - vanillaAccessories;
 while {true} do {
+	waitUntil {count allPlayers > 0};
 	sleep 1800; // 30 min
 	publicVariable "allWeapons";
 	publicVariable "convoyScriptRunning";

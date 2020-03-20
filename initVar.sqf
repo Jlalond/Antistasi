@@ -247,8 +247,6 @@ publicVariable "reducedGarrisons";
 publicVariable "replaceFIA";
 publicVariable "static_playerSide";
 
-_armors = "((configName (_x)) isKindof ['Bag_Base', configFile >> 'cfgVehicles'])" configClasses (configFile >> "cfgVehicles");
-armorItems = _armors apply {configName _x};
 allWeapons = lockedWeapons - vanillaWeapons;
 allItems = gear_allAccessories  - vanillaAccessories;  
 

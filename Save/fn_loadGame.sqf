@@ -40,6 +40,7 @@ publicVariable "flag_playerList";
 ["resourcesFIA"] call fn_loadData;
 ["garrison"] call fn_loadData;
 ["skillFIA"] call fn_loadData;
+["heavy_vehicle_ammo"] call fn_loadData;
 ["skillAAF"] call fn_loadData; publicVariable "skillAAF";
 ["distanciaSPWN"] call fn_loadData; publicVariable "distanciaSPWN";
 ["civPerc"] call fn_loadData; publicVariable "civPerc";
@@ -49,6 +50,7 @@ publicVariable "flag_playerList";
 ["destroyedBuildings"] call fn_loadData;
 ["idleBases"] call fn_loadData;
 ["AS_destroyedZones"] call fn_loadData; publicVariable "AS_destroyedZones";
+["hqItemCrate"] call fn_loadData; publicVariable "hqItemCrate";
 
 ["unlockedItems"] call fn_loadData; publicVariable "unlockedOptics";
 ["unlockedMagazines"] call fn_loadData; publicVariable "unlockedMagazines";

@@ -1,6 +1,8 @@
 private ["_posHQ"];
 _posHQ = getMarkerPos guer_respawn;
-
+waitUntil {repairRunning == false};
+repairRunning = true;
+publicVariable "repairRunning";
 {
 	if (((side _x == side_blue) OR (side _x == civilian)) AND (_x distance _posHQ < 100)) then {
 		if (activeACEMedical) then {
@@ -19,9 +21,27 @@ _posHQ = getMarkerPos guer_respawn;
 		 reportedVehs = reportedVehs - [_x];
 		_x setDamage 0;
 		if(fuel _x < 0.005) then {_x setFuel 0.005};
-		[_x,1] remoteExec ["setVehicleAmmo",_x];
+		if(count (weapons _x) > 1) then {
+			if(heavy_weapon_ammo > 0) then
+			{
+				heavy_weapon_ammo = heavy_weapon_ammo - 1;
+				[_x,1] remoteExec ["setVehicleAmmo",_x];
+			} 
+			else
+			{
+				hint format ["Not enough heavy weapon ammo to rearm %1" className _x];
+			}
+		}
+		else
+		{
+			[_x,1] remoteExec ["setVehicleAmmo",_x];
+		};
 	};
 } forEach vehicles;
+
+publicVariable "heavy_weapon_ammo";
+repairRunning = false;
+publicVariable "repairRunning";
 
 publicVariable "reportedVehs";
 
