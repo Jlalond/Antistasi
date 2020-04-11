@@ -14,15 +14,7 @@ if (activeACE) then {
 	if ("ACE_Medical" call ace_common_fnc_isModLoaded) then {
 		activeACEMedical = true;
 
-		if (ace_medical_level == 1) then //ACE Basic medical system
-		{
-			{unlockedItems pushback _x} foreach ["ACE_fieldDressing","ACE_bloodIV_500","ACE_bloodIV","ACE_epinephrine","ACE_morphine","ACE_bodyBag"];
-		};
-		if(ace_medical_level == 2) then  //ACE Advanced medical system
-		{
-
-			{unlockedItems pushback _x} foreach ["ACE_bloodIV_500","ACE_bloodIV","ACE_epinephrine","ACE_morphine","ACE_bodyBag","ACE_elasticBandage","ACE_bloodIV_250","ACE_packingBandage","ACE_personalAidKit","ACE_plasmaIV","ACE_plasmaIV_500","ACE_plasmaIV_250","ACE_salineIV","ACE_salineIV_500","ACE_salineIV_250","ACE_surgicalKit","ACE_tourniquet","ACE_adenosine","ACE_atropine","ACE_quikclot"];
-		};
+		{unlockedItems pushback _x} foreach ["ACE_fieldDressing","ACE_bodyBag"];
 	};
 };
 
